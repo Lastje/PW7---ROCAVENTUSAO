@@ -2,6 +2,7 @@
 <html>
 	<head>
 			<title>Inloggen</title>
+			<link rel="stylesheet" type="text/css" href="..\style\global.css">
 	</head>
 	<body>
 		<h1>inloggen</h1>
@@ -21,6 +22,7 @@
 		</tr>
 		<tr>
 			<td><a href="">wachtwoord vergeten</a></td>
+			<td><a href="">Aanmelden</a></td>
 		</tr>
 		</table>
 		</form>
