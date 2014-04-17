@@ -11,7 +11,7 @@
 	} elseif ($globalPath == '/PW7/inloggen/') {
 		include'../PW7/actions/doLogin.php';
 	} elseif ($globalPath == '/PW7/wachtwoordvergeten/') {
-		include'../PW7/actions/doPasswordForget.php';
+		include'../PW7/actions/passwordForgot.php';
 	} elseif ($globalPath == '/PW7/registreren/') {
 		include'../PW7/actions/registratie.php';
 	} else {
