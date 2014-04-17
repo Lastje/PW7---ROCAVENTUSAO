@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<h1>inloggen</h1>
-		<form method="post" action="" >
+		<form method="post" action="..\actions\doLogin.php" >
 		<table border="1">
 		<tr>
 			<td>gebruikersnaam</td>
@@ -15,14 +15,14 @@
 		<tr>
 			<td>wachtwoord</td>
 			<td><input type="password" /></td>
-			<input type="hidden" name="contrle" value="test" />
+			<input type="hidden" name="controle" value="test" />
 		</tr>
 		<tr>
-			<td colspan="2"><input type="button" value="inloggen" name="login"></td>
+			<td colspan="2"><input type="submit" value="inloggen" name="login"></td>
 		</tr>
 		<tr>
-			<td><a href="">wachtwoord vergeten</a></td>
-			<td><a href="">Aanmelden</a></td>
+			<td><a href="passwordForgot.php">wachtwoord vergeten</a></td>
+			<td><a href="registratie.php">Aanmelden</a></td>
 		</tr>
 		</table>
 		</form>
