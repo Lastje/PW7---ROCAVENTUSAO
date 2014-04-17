@@ -21,8 +21,8 @@
 			<td colspan="2"><input type="submit" value="inloggen" name="login"></td>
 		</tr>
 		<tr>
-			<td><a href="passwordForgot.php">wachtwoord vergeten</a></td>
-			<td><a href="registratie.php">Aanmelden</a></td>
+			<td><a href="../PW7/wachtwoordvergeten/">wachtwoord vergeten</a></td>
+			<td><a href="../PW7/registreren/">registreren</a></td>
 		</tr>
 		</table>
 		</form>
