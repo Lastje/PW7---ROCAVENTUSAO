@@ -15,6 +15,14 @@
 			$this->db_object = $db;
 		}
 
+		public function saveUser($user){
+
+		}
+
+		public function saveMessage($message){
+			
+		}
+
 		public function __get($property) {
     		if (property_exists($this, $property)) {
       			return $this->$property;

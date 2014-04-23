@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<h1>inloggen</h1>
-		<form method="post" action="..\actions\doLogin.php" >
+		<form method="post" action="../PW7/inloggen/" >
 		<table border="1">
 		<tr>
 			<td>gebruikersnaam</td>
