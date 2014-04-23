@@ -6,11 +6,16 @@
 		private $ontvanger_id;
 		private $datum; //timestamp
 
+		private $database;
+
 		function __construct($dataArray) {
 			$this->berichtTekst = $dataArray['berichtTekst'];
 			$this->onderwerp = $dataArray['onderwerp'];
 			$this->afzender_id = $dataArray['afzender_id'];
 			$this->ontvanger_id = $dataArray['ontvanger_id'];
+		
+			$this->database = new Database();
+			$this->database->connect();
 		}
 
 		public function __get($property) {
@@ -26,7 +31,7 @@
   		}
 
   		public function write(){
-
+  			$this->database->saveMessage($this);
   		}
 	}
 

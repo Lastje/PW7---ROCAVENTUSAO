@@ -19,8 +19,26 @@
 
 		}
 
+		public function getMessage($id){
+			$query = "SELECT * FROM message WHERE id = :id ";
+			$query = 
+		}
+
 		public function saveMessage($message){
-			
+			$query = "INSERT INTO message (berichtTekst, 
+										   onderwerp,
+										   afzender_id,
+										   ontvanger_id)
+					  VALUES (:berichtTekst,
+					  	      :onderwerp,
+					  	      :afzender_id,
+					  	      :ontvanger_id )";
+
+			$r = $this->db_object->prepare($query);
+			$r->execute(array(':berichtTekst'=>$message->berichtTekst,
+	                          ':onderwerp'=>$message->onderwerp,
+	                          ':afzender_id'=>$message->afzender_id,
+	                          ':ontvanger_id'=>$message->ontvanger_id));
 		}
 
 		public function __get($property) {
