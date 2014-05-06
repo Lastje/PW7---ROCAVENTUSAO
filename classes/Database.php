@@ -100,7 +100,15 @@
       			$this->$property = $value;
     		}
   		}
-
+		
+		public function userlogin($u) {
+			$query = "SELECT id FROM user WHERE gebruikersnaam = :u ";
+			$r = $this->db_object->prepare($query);
+			$r->execute(array(':u'=>$u));
+			
+			$userid = mysql_fetch_row($query);
+			return $userid;
+		}
 
 	}
 

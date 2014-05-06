@@ -10,7 +10,7 @@
 </tr>
 <tr>
 	<td>wachtwoord</td>
-	<td><input type="password" /></td>
+	<td><input type="password" name="password" /></td>
 	<input type="hidden" name="controle" value="test" />
 </tr>
 <tr>
