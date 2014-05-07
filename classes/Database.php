@@ -20,8 +20,7 @@
 		}
 
 		public function getMessage($id){
-			$query = "SELECT * FROM message WHERE id = :id ";
-			$query = 
+			$query = "SELECT * FROM message WHERE id = :id "; 
 		}
 
 		public function saveMessage($message){
