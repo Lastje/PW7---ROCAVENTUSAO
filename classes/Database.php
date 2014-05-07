@@ -16,12 +16,60 @@
 		}
 
 		public function saveUser($user){
+			$query = "INSERT INTO user (voornaam, 
+										tussenvoegsel,
+										achternaam,
+										adres,
+										huisnummer,
+										postcode,
+										plaats,
+										email,
+										gebruikersnaam,
+										wachtwoord,
+										activated)
+			  VALUES (:voornaam,
+			  	      :tussenvoegsel,
+			  	      :achternaam,
+			  	      :adres,
+			  	      :huisnummer,
+			  	      :postcode,
+			  	      :plaats,
+			  	      :email,
+			  	      :gebruikersnaam,
+			  	      :wachtwoord,
+			  	      :activated )";
 
+			$r = $this->db_object->prepare($query);
+			$r->execute(array(':voornaam'=>$user->voornaam,
+	                          ':tussenvoegsel'=>$user->tussenvoegsel,
+	                          ':achternaam'=>$user->achternaam,
+	                          ':adres'=>$user->adres,
+	                          ':huisnummer'=>$user->huisnummer,
+	                          ':postcode'=>$user->postcode,
+	                          ':plaats'=>$user->plaats,
+	                          ':email'=>$user->email,
+	                          ':gebruikersnaam'=>$user->gebruikersnaam,
+	                          ':wachtwoord'=>$user->wachtwoord,
+	                          ':activated'=>$user->activated));
 		}
 
 		public function getMessage($id){
 			$query = "SELECT * FROM message WHERE id = :id ";
-			$query = 
+			$r = $this->db_object->prepare($query);
+			$r->execute(array(':id'=>$id));
+
+			$message = array();
+
+			while($row = $r->fetch(PDO::FETCH_ASSOC)){
+				$message['berichtTekst'] = $row['berichttekst'];
+				$message['onderwerp'] = $row['onderwerp'];
+				$message['afzender_id'] = $row['afzender_id'];
+				$message['ontvanger_id'] = $row['ontvanger_id'];
+				$message['datum'] = $row['datum'];
+			}
+
+			return $return_message = new Message($message,true);
+
 		}
 
 		public function saveMessage($message){

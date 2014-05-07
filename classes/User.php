@@ -11,10 +11,12 @@
 		private $email;
 		private $gebruikersnaam;
 		private $wachtwoord;	
-		private $activated;		
+		private $activated;
+		
+
+		private $database;		
 
 		function __construct($dataArray) {
-			$this->id = $dataArray['id'];
 			$this->voornaam = $dataArray['voornaam'];
 			$this->tussenvoegsel = $dataArray['tussenvoegsel'];
 			$this->achternaam = $dataArray['achternaam'];
@@ -26,6 +28,27 @@
 			$this->gebruikersnaam = $dataArray['gebruikersnaam'];
 			$this->wachtwoord = $dataArray['wachtwoord'];
 			$this->activated = $dataArray['activated'];
+	
+
+			$this->database = new Database();
+			$this->database->connect();
 		}
+
+		public function __get($property) {
+    		if (property_exists($this, $property)) {
+      			return $this->$property;
+    		}
+  		}
+
+  		public function __set($property, $value) {
+    		if (property_exists($this, $property)) {
+      			$this->$property = $value;
+    		}
+  		}
+
+  		public function write(){
+  			$this->database->saveUser($this);
+  		}
+
 	}
 ?>
