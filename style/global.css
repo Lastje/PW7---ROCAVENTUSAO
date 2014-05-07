@@ -1,0 +1,36 @@
+body{
+	font-family: Verdana;
+	background-color: #ACB2CC;
+}
+
+.header {
+	width: auto;
+	height: 75px;
+	background-color: #45507F;
+}
+
+.content {
+	height: 800px;
+	width: 1000px;
+	margin: auto;
+	background-color: red;
+}
+
+.innerContent{
+	height: 650px;
+	width: 750px;
+	background-color: #D7DFFF;
+}
+
+.sideBar{
+	height: 650px;
+	width: 250px;
+	float: right;
+	background-color: #8BA0FF;
+}
+
+.footer{
+	width: auto;
+	height: 75px;
+	background-color: #6C6F7F;
+}
