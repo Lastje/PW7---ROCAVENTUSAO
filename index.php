@@ -2,7 +2,8 @@
 
 	//include config
 	include'../PW7/config/config.php';
-
+	//include header
+	include'../PW7/templates/header.php'; 
 	//start of html
 
 	//redirect
@@ -14,9 +15,12 @@
 		include'../PW7/templates/passwordForgot.php';
 	} elseif ($globalPath == '/PW7/registreren/') {
 		include'../PW7/templates/registratie.php';
+	} elseif ($globalPath == '/PW7/main/') {
+		include'../PW7/templates/main.php';
 	} else {
 		include'../PW7/templates/inloggen.php';
 	}
-
+	//include footer
+	include'../PW7/templates/footer.php'; 
 	//end of html
 ?>
