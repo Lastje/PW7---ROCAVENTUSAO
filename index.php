@@ -15,6 +15,8 @@
 		include'../PW7/templates/passwordForgot.php';
 	} elseif ($globalPath == '/PW7/registreren/') {
 		include'../PW7/templates/registratie.php';
+	} elseif ($globalPath == '/PW7/main/') {
+		include'../PW7/templates/main.php';
 	} else {
 		include'../PW7/templates/inloggen.php';
 	}
