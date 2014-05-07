@@ -1,6 +1,9 @@
-<h1>inloggen</h1>
+
 <form method="post" action="../PW7/inloggen/" >
-<table border="1">
+<table align="center" border="1">
+<tr>
+	<th colspan="2">inloggen</th>
+</tr>
 <tr>
 	<td>gebruikersnaam</td>
 	<td><input type="text" name="username" /></td>			
