@@ -123,3 +123,8 @@ body{
 	background-color: white;
 	width: 600px;
 }
+
+a {
+	color: black;
+	text-decoration: none;
+}
