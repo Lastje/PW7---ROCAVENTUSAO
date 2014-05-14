@@ -105,9 +105,13 @@
 			$query = "SELECT id FROM user WHERE gebruikersnaam = :u ";
 			$r = $this->db_object->prepare($query);
 			$r->execute(array(':u'=>$u));
+			$id = '';
 			
-			$userid = mysql_fetch_row($query);
-			return $userid;
+			while($row = $r->fetch(PDO::FETCH_ASSOC)){
+				$id = $row['id'];
+			}		
+			
+			return $id;
 		}
 
 	}
