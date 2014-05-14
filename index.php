@@ -2,13 +2,13 @@
 
 	//include config
 	include'../PW7/config/config.php';
-	//include header
-	include'../PW7/templates/header.php'; 
+	
 	//start of html
+	include'../PW7/templates/header.php';
 
 	//redirect
 	if($globalPath == '/PW7/'){
-		include'../PW7/templates/inloggen.php';
+		include'../PW7/templates/main.php';
 	} elseif ($globalPath == '/PW7/inloggen/') {
 		include'../PW7/actions/doLogin.php';
 	} elseif ($globalPath == '/PW7/wachtwoordvergeten/') {
@@ -18,7 +18,7 @@
 	} elseif ($globalPath == '/PW7/main/') {
 		include'../PW7/templates/main.php';
 	} else {
-		include'../PW7/templates/inloggen.php';
+		include'../PW7/templates/main.php';
 	}
 	//include footer
 	include'../PW7/templates/footer.php'; 
