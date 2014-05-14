@@ -1,15 +1,17 @@
 <?php
+
+	echo "dologin";
+
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	
-	if(!empty($username) && !empty($password))
-	{
-		echo $database->userlogin($username);
+	if(isset($_POST['username']) && isset($_POST['password'])) {
+		//echo $database->userlogin($username);
 		
 	}
 	else
 	{
-		header('Location: ../PW7/');
+		//header('Location: ../PW7/');
 		exit;
 	}
 ?>
