@@ -1,3 +1,7 @@
+<?php 
+session_start();
+$_SESSION['error'] = null;
+?>
 <div class="content">
  	<div class="header">
  		
@@ -8,7 +12,7 @@
 	</div>
 
 	<div class="innerContent">
-		<form method="post" action="../PW7/inloggen/" >
+		<form method="post" action="../../PW7/inloggen/" >
 		<table align="center" border="1">
 		<tr>
 			<th colspan="2">inloggen</th>
@@ -23,11 +27,11 @@
 			<input type="hidden" name="controle" value="test" />
 		</tr>
 		<tr>
-			<td colspan="2"><input type="submit" value="inloggen" name="login"></td>
+			<td colspan="2"><input type="submit" value="inloggen" name="login"> <?php echo $_SESSION['error']; ?></td>
 		</tr>
 		<tr>
-			<td><a href="../../PW7/wachtwoordvergeten/">wachtwoord vergeten</a></td>
-			<td><a href="../../PW7/registreren/">registreren</a></td>
+			<td><a href="../PW7/wachtwoordvergeten/">wachtwoord vergeten</a></td>
+			<td><a href="../PW7/registreren/">registreren</a></td>
 		</tr>
 		</table>
 		</form>
