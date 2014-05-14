@@ -4,7 +4,7 @@
 	include'../PW7/config/config.php';
 	
 	//start of html
-	include'../PW7/templates/header.php';
+	include_once'../PW7/templates/header.php';
 
 	//redirect
 	if($globalPath == '/PW7/'){
@@ -17,6 +17,8 @@
 		include'../PW7/templates/registratie.php';
 	} elseif ($globalPath == '/PW7/main/') {
 		include'../PW7/templates/main.php';
+	} elseif ($globalPath == '/PW7/login/') {
+		include'../PW7/templates/inloggen.php';
 	} else {
 		include'../PW7/templates/main.php';
 	}
