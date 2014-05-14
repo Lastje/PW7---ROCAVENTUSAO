@@ -17,6 +17,8 @@
 		include'../PW7/templates/registratie.php';
 	} elseif ($globalPath == '/PW7/main/') {
 		include'../PW7/templates/main.php';
+	} elseif ($globalPath == '/PW7/registreren_action/') {
+		include'../PW7/actions/doRegistratie.php';
 	} elseif ($globalPath == '/PW7/login/') {
 		include'../PW7/templates/inloggen.php';
 	} else {

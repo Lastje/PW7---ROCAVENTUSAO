@@ -75,6 +75,12 @@ body{
 	background-color: #D7DFFF;
 }
 
+#form_registrate{
+	position: relative;
+	top: 50px;
+	left: 30px;
+}
+
 .sideBar{
 	height: 650px;
 	width: 250px;
@@ -109,4 +115,11 @@ body{
 	color: white;
 	position: absolute;
 	margin-left: 5px;
+}
+
+#explain_ww {
+	border: 1px solid red;
+	border-radius: 15px;
+	background-color: white;
+	width: 600px;
 }

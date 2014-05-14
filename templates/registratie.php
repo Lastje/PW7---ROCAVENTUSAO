@@ -9,7 +9,71 @@
 
     <div class="innerContent">
         <div id="option_menu">
-            <div class="option_item"><i class="fa fa-pencil"></i> Terug</div>
+            <div class="option_item"><i class="fa fa-pencil"></i> <a href="../../PW7/inloggen/">Terug</a> </div>
+        </div>
+        <div id="form_registrate">
+        <form method="post" action="../../PW7/registreren_action/">
+            <table>
+                <tr>
+                    <td><strong><i class="fa fa-edit"></i> Persoonlijke gegevens:</strong></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Voornaam</td>
+                    <td><input type="text" name="firstname"></td>
+                </tr>
+                <tr>
+                    <td>Tussenvoegsel</td>
+                    <td><input type="text" name="Tussenvoegsel"></td>
+                </tr>
+                <tr>
+                    <td>Achternaam</td>   
+                    <td><input type="text" name="Achternaam"></td>
+                </tr>
+                <tr>
+                    <td><strong><i class="fa fa-home"></i> Adres:</strong></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Straatnaam</td>
+                    <td><input type="text" name="Adres"></td>
+                </tr>
+                <tr>
+                    <td>Postcode</td>
+                    <td><input type="text" name="Postcode"></td>
+                </tr>
+                <tr>
+                    <td>Plaats</td>
+                    <td><input type="text" name="Plaats"></td>
+                </tr>
+                <tr>
+                    <td><strong><i class="fa fa-gears"> Account:</strong></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Gebruikersnaam</td>
+                    <td><input type="text" name="Gebruikersnaam"></td>
+                    <td><i id="question_gb" class="fa fa-question-circle"></td>
+                </tr>
+                <tr>
+                    <td>E-mail</td>
+                    <td><input type="text" name="E-mail"></td>
+                </tr>
+                <tr>
+                    <td>Wachtwoord</td>
+                    <td><input type="password" name="pwd"></td>
+                    <td><i id="question_ww" class="fa fa-question-circle"></td>
+                </tr>
+                <tr>
+                    <td>Herhaal wachtwoord</td>
+                    <td><input type="password" name="pwd2"></td>
+                </tr>
+            </table>
+            <br />
+            <input type="submit" value="Registreren"/>
+        </form>
+        <br />
+        <div id="explain_ww"><small id="small_exp"></small></div>
         </div>
     </div>
 
@@ -18,47 +82,34 @@
     </div>
 
 </div>
-        <h1>Registreren</h1>
-        <form>
-            Voornaam: <input type="text" name="firstname"><br>
-            Tussenvoegsel: <input type="text" name="Tussenvoegsel"><br>
-            Achternaam: <input type="text" name="Achternaam"><br>
-            Adres: <input type="text" name="Adres"><br>
-            Postcode: <input type="text" name="Postcode"><br>
-            Plaats: <input type="text" name="Plaats"><br>
-            E-mail: <input type="text" name="E-mail"><br>
-            Gebruikersnaam: <input type="text" name="Gebruikersnaam"><br>
-            Wachtwoord: <input type="password" name="pwd">
-        </form>
-        
-        <?php
-            $con=mysqli_connect("localhost","root","","pw7");
-                // Check connection
-            if (mysqli_connect_errno()) {
-                echo "Kan geen verbinding met MySQL maken: " . mysqli_connect_error();
-            }
 
-                // escape variables for security
-                $Voornaam = mysqli_real_escape_string($con, $_POST['Voornaam']);
-                $Tussenvoegsel = mysqli_real_escape_string($con, $_POST['Tussenvoegsel']);
-                $Achternaam = mysqli_real_escape_string($con, $_POST['Achternaam']);
-                $Adres = mysqli_real_escape_string($con, $_POST['Adres']);
-                $Huisnummer = mysqli_real_escape_string($con, $_POST['Huisnummer']);
-                $Postcode = mysqli_real_escape_string($con, $_POST['Postcode']);
-                $Plaats = mysqli_real_escape_string($con, $_POST['Plaats']);
-                $Email = mysqli_real_escape_string($con, $_POST['E-mail']);
-                $Gebruikersnaam = mysqli_real_escape_string($con, $_POST['Gebruikersnaam']);
-                $Wachtwoord = mysqli_real_escape_string($con, $_POST['Wachtwoord']);
-               
+<script type="text/javascript">
+    var question_ww = $('#question_ww');
+    var question_gb = $('#question_gb');
+    var explain_ww = $('#explain_ww');
+    var div_text = $('#small_exp');
 
-                $sql="INSERT INTO Persons (FirstName, LastName, Age)
-                VALUES ('$firstname', '$lastname', '$age')";
+    var text_ww = '&nbsp 1 speciaal karackter, 1 hoofdletter, 1 kleine letter en minimaal 8 tekens lang';
+    var text_gb = '&nbsp De gebruikersnaam mag alleen letters bevatten';
 
-                if (!mysqli_query($con,$sql)) {
-                 die('Error: ' . mysqli_error($con));
-                }
-                echo "1 record added";
+    explain_ww.hide();
 
-                mysqli_close($con);
-        ?>
+    question_ww.bind('mouseover',function(event){
+        div_text.html(text_ww)
+        explain_ww.fadeIn('slow');
+    });
+    question_ww.bind('mouseout',function(event){
+        explain_ww.fadeOut();
+    });
+
+    question_gb.bind('mouseover',function(event){
+        div_text.html(text_gb)
+        explain_ww.fadeIn('slow');
+    });
+    question_gb.bind('mouseout',function(event){
+        explain_ww.fadeOut();
+    });
+    
+    $()
+</script>
         
