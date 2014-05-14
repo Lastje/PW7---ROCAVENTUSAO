@@ -72,6 +72,31 @@
 
 		}
 
+		public function getUserById($id){
+  			$query = "SELECT * FROM user WHERE id = :id";
+			$r = $this->db_object->prepare($query);
+			$r->execute(array(':id'=>$id));
+
+			$user = array();
+
+			while($row = $r->fetch(PDO::FETCH_ASSOC)){
+				$user['voornaam'] = $row['voornaam'];
+				$user['tussenvoegsel'] = $row['tussenvoegsel'];
+				$user['achternaam'] = $row['achternaam'];
+				$user['adres'] = $row['adres'];
+				$user['huisnummer'] = $row['huisnummer'];
+				$user['postcode'] = $row['postcode'];
+				$user['plaats'] = $row['plaats'];
+				$user['email'] = $row['email'];
+				$user['gebruikersnaam'] = $row['gebruikersnaam'];
+				$user['wachtwoord'] = $row['wachtwoord'];
+				$user['activated'] = $row['activated'];
+			}
+
+			return $return_user = new User($user);
+
+  		}
+
 		public function saveMessage($message){
 			$query = "INSERT INTO message (berichtTekst, 
 										   onderwerp,
