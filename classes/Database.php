@@ -15,13 +15,8 @@
 			$this->db_object = $db;
 		}
 
-		public function saveUser($user, $new=true){
-			$query_action = "INSERT INTO user";
-			if(!$new) {
-				$query_action = "UPDATE INTO user WHERE $user = $user ";
-			}
-			
-			$query = ".$query_action. 	(voornaam, 
+		public function saveUser($user){
+			$query = "INSERT INTO user (voornaam, 
 										tussenvoegsel,
 										achternaam,
 										adres,
@@ -143,20 +138,8 @@
 			
 			return $id;
 		}
-		public function randPassword() {
-			$n = "0123456789";
-			$a = "abcdefghijklmnopqrstuvwxyz";
-			$randpassword= "";
-			for($i=0; $i < 3; $i++) {
-				$randpassword .= $n[rand(0, strlen($n) - 1)];
-				$randpassword .= $a[rand(0, strlen($a) - 1)];
-				$randpassword .= strtoupper($a)[rand(0, strlen($a) - 1)];
-				}
-				return $randpassword;
-			}
-		}
 
-	
+	}
 
 
 ?>
