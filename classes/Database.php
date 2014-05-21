@@ -15,8 +15,13 @@
 			$this->db_object = $db;
 		}
 
-		public function saveUser($user){
-			$query = "INSERT INTO user (voornaam, 
+		public function saveUser($user, $new=true){
+			$query_action = "INSERT INTO user";
+			if(!$new) {
+				$query_action = "UPDATE INTO user WHERE $user = $user ";
+			}
+			
+			$query = $query_action."	(voornaam, 
 										tussenvoegsel,
 										achternaam,
 										adres,
