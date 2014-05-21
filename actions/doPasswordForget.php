@@ -11,7 +11,9 @@
 		$user = $database->getUserById($userid);
 		$mail = $user->email;
 		$randPassword = $database->randPassword();
+		$user->wachtwoord = md5($randPassword);
 		$database->saveUser($user, $new=false)
+		$message = "wachtwoord is". $randPassword;
 	mail($mail, $subject,$message,"From: $from\n");
 	
 	header('Location: ../../PW7/login/');

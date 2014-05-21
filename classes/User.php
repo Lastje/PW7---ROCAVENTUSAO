@@ -36,7 +36,7 @@
 
 		public function getName(){
 			if ($this->tussenvoegsel != '' ) {
-				return $this->voornaam . ' ' . $this->tussenvoegsel . ' ' . $thiis->achternaam;
+				return $this->voornaam . ' ' . $this->tussenvoegsel . ' ' . $this->achternaam;
 			}else{
 				return $this->voornaam . ' ' . $this->achternaam;
 			}
