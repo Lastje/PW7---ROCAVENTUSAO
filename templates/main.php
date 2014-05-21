@@ -1,6 +1,11 @@
+<?php 
+
+if(isset($_SESSION['userId'])) {
+$user = $database->getUserById($_SESSION['userId']);
+?>
 <div class="content">
  	<div class="header">
- 		<h1 id="header_h1">Welkom Jan Jansen</h1>
+ 		<h1 id="header_h1">Welkom <?php echo $user->getName(); ?></h1>
  	</div>
 
  	<div class="sideBar">
@@ -10,9 +15,11 @@
 	<div class="innerContent">
 		<div id="option_menu">
 			<div class="option_item"><i class="fa fa-pencil"></i> Profiel</div>
-			<div class="option_item"><i class="fa fa-power-off"></i> Uitloggen</div>
+			<div class="option_item"><a href="/PW7/logout/"><i class="fa fa-power-off"></i> Uitloggen</a></div>
 
 		</div>
+
+
 	</div>
 
 	<div class="footer">
@@ -20,4 +27,10 @@
 	</div>
 
 </div>
+
+<?php } else {
+
+	header('location:/PW7/inloggen/');
+
+} ?>
 

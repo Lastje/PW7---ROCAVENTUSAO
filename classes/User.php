@@ -34,6 +34,15 @@
 			$this->database->connect();
 		}
 
+		public function getName(){
+			if ($this->tussenvoegsel != '' ) {
+				return $this->voornaam . ' ' . $this->tussenvoegsel . ' ' . $thiis->achternaam;
+			}else{
+				return $this->voornaam . ' ' . $this->achternaam;
+			}
+			
+		}
+
 		public function __get($property) {
     		if (property_exists($this, $property)) {
       			return $this->$property;

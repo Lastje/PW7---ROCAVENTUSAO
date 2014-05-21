@@ -124,6 +124,18 @@ body{
 	width: 600px;
 }
 
+#form_wrapper {
+	width: 750px;
+	text-align: center;
+}
+
+#inlogForm {
+    position: absolute;
+    width: 400px;
+    margin-top: 30px;
+    margin-left: 180px;
+}
+
 a {
 	color: black;
 	text-decoration: none;
