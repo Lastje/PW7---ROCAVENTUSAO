@@ -46,7 +46,7 @@
     		}
   		}
 
-  		public function write(){
+  		public function write($new){
   			$this->database->saveUser($this);
   		}
 

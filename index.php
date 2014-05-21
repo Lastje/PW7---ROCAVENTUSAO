@@ -19,6 +19,8 @@
 		include'../PW7/templates/main.php';
 	} elseif ($globalPath == '/PW7/registreren_action/') {
 		include'../PW7/actions/doRegistratie.php';
+	} elseif ($globalPath == '/PW7/DopasswordForgot/') {
+		include'../PW7/actions/doPasswordForget.php';
 	} elseif ($globalPath == '/PW7/login/') {
 		include'../PW7/templates/inloggen.php';
 	} else {
