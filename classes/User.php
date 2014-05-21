@@ -55,8 +55,8 @@
     		}
   		}
 
-  		public function write($new){
-  			$this->database->saveUser($this);
+  		public function write($new=true){
+  			$this->database->saveUser($this,$new);
   		}
 			
 		

@@ -19,7 +19,6 @@ $user = $database->getUserById($_SESSION['userId']);
 
 		</div>
 
-
 	</div>
 
 	<div class="footer">
