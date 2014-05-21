@@ -2,7 +2,7 @@
 	$username = $_POST['username'];
 	$mail; 
 	$subject = "wachtwoord vergeten.";
-	$message = "bla";
+	$message = "password =". $database->randPassword();
 	$from = "PW7@PW7.nl";
 	
 	// verkrijg gebruikers gegevens
