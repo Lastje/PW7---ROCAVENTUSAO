@@ -21,7 +21,7 @@
 				$query_action = "UPDATE INTO user WHERE $user = $user ";
 			}
 			
-			$query = ".$query_action. 	(voornaam, 
+			$query = $query_action."	(voornaam, 
 										tussenvoegsel,
 										achternaam,
 										adres,
