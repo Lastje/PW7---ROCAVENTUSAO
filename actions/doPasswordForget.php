@@ -23,7 +23,7 @@
 		$mail = $user->email;
 		$randPassword = randPassword();
 		$user->wachtwoord = md5($randPassword);
-		$database->saveUser($user, $new=false);
+		$user-($user, $new=false);
 		$message = "wachtwoord is". $randPassword;
 	mail($mail, $subject,$message,"From: $from\n");
 	
