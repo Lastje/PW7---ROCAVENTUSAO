@@ -140,3 +140,9 @@ a {
 	color: black;
 	text-decoration: none;
 }
+
+#my_profile {
+	position: absolute;
+	margin-top: 60px;
+	margin-left: 10px;
+}
