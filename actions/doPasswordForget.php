@@ -16,7 +16,9 @@
 	$message = "";
 	$from = "PW7@PW7.nl";
 	$user;
-	
+	$userid = null;
+	$userid = $database->userlogin($username);
+	if($userid != null) {
 	// verkrijg gebruikers gegevens
 	$userid = $database->userlogin($username);
 		$user = $database->getUserById($userid);
@@ -27,4 +29,9 @@
 	mail($mail, $subject,$message,"From: $from\n");
 		$user->write(false);
 	header('Location: ../../PW7/login/');
+	}
+	else
+	{
+		header('Location: ../../PW7/wachtwoordvergeten/');
+	}
 ?>
