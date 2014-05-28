@@ -12,6 +12,19 @@ $user = $database->getUserById($_SESSION['userId']);
 		<div id="header_inbox"><i class="fa fa-inbox"></i> Inbox</div>
 		<div style="position:absolute;margin-top:10px;margin-left:10px;">
 			<a id="new_message" style="cursor:pointer;"><i class="fa fa-plus-square"></i> Nieuwe bericht</a>
+			<hr>
+		</div>
+		<div id="inbox">
+			<!--<div id="message">
+			Van: <br />
+			Onderwerp: <br />
+			Datum: <br />
+			</div>
+			<div id="message">
+			Van: test <br />
+			Onderwerp: <br />
+			Datum: <?php var_dump($user->id); ?><br />
+			</div>-->
 		</div>
 	</div>
 

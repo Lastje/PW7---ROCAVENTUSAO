@@ -55,6 +55,45 @@
     		}
   		}
 
+  		public function getMessages(){
+  			$id = $database->userlogin($this->gebruikersnaam);
+
+  			$query = "SELECT * FROM message WHERE ontvanger_id = :id";
+			$r = $this->database->prepare($query);
+			$r->execute(array(':u'=>$id));
+			
+			while($row = $r->fetch(PDO::FETCH_ASSOC)){
+				$message_a = array();
+				$message_a['berichttekst'] = $row['berichttekst'];
+				$message_a['onderwerp'] = $row['onderwerp'];
+				$message_a['afzender_id'] = $row['afzender_id'];
+				$message_a['ontvanger_id'] = $row['ontvanger_id'];
+				$message_a['datum'] = $row['datum'];
+
+				$message = new Message($message_a,true);
+				$afzender = $database->getUserById($message_a['afzender_id']);
+
+				$html = "<div id='message'>
+						Van: " . $afzender->getName() . "<br />
+						Onderwerp: " . $message->onderwerp . "<br />
+						Datum: " . $message->datum . "<br />
+						</div>";
+
+				echo $html;
+			}		
+
+			/*$this->berichtTekst = $dataArray['berichttekst'];
+			$this->onderwerp = $dataArray['onderwerp'];
+			$this->afzender_id = $dataArray['afzender_id'];
+			$this->ontvanger_id = $dataArray['ontvanger_id'];
+
+			if ($datum) {
+				$this->datum = $dataArray['datum'];
+			}*/
+			
+			return $id;
+  		}
+
   		public function write($new=true){
   			$this->database->saveUser($this,$new);
   		}

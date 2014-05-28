@@ -149,7 +149,20 @@ a {
 }
 
 #my_profile {
+	
+}
+
+#inbox {
+	background-color: red;
 	position: absolute;
 	margin-top: 60px;
 	margin-left: 10px;
+	height: auto;
+}
+
+#message {
+	background-color: yellow;
+	position: relative;
+	float: top;
+	margin-top: 5px;
 }
