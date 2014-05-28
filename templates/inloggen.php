@@ -31,8 +31,8 @@ $_SESSION['error'] = null;
 			<td colspan="2"><input type="submit" value="Inloggen" name="login"> <?php echo $_SESSION['error']; ?></td>
 		</tr>
 		<tr>
-			<td><button href="../../PW7/wachtwoordvergeten/">Wachtwoord vergeten</button></td>
-			<td><button href="../../PW7/registreren/">Registreren</button></td>
+			<td><a href="../../PW7/wachtwoordvergeten/">Wachtwoord vergeten</a></td>
+			<td><a href="../../PW7/registreren/">Registreren</a></td>
 		</tr>
 		</table>
 		</form>
