@@ -153,7 +153,7 @@
 			$query = "SELECT id FROM user WHERE gebruikersnaam = :u ";
 			$r = $this->db_object->prepare($query);
 			$r->execute(array(':u'=>$u));
-			$id = '';
+			$id = null;
 			
 			while($row = $r->fetch(PDO::FETCH_ASSOC)){
 				$id = $row['id'];

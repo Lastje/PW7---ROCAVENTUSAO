@@ -23,9 +23,8 @@
 		$mail = $user->email;
 		$randPassword = randPassword();
 		$user->wachtwoord = md5($randPassword);
-		$user-($user, $new=false);
-		$message = "wachtwoord is". $randPassword;
+		$message = "wachtwoord is ". $randPassword;
 	mail($mail, $subject,$message,"From: $from\n");
-	
+		$user->write(false);
 	header('Location: ../../PW7/login/');
 ?>
