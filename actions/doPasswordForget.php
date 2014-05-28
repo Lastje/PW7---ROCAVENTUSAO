@@ -6,7 +6,7 @@
 		for($i=0; $i < 3; $i++) {
 			$randpassword .= $n[rand(0, strlen($n) - 1)];
 			$randpassword .= $a[rand(0, strlen($a) - 1)];
-			$randpassword .= strtoupper($a)[rand(0, strlen($a) - 1)];
+			$randpassword .= strtoupper($a);
 			}
 			return $randpassword;
 			}
