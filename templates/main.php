@@ -13,6 +13,9 @@
 			<div class="option_item"><i class="fa fa-power-off"></i> Uitloggen</div>
 
 		</div>
+        <div id="createmessage">
+            
+        </div>
 	</div>
 
 	<div class="footer">
@@ -20,4 +23,3 @@
 	</div>
 
 </div>
-

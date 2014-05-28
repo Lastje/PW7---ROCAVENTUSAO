@@ -105,6 +105,13 @@ body{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=0 ); /* IE6-9 */
 }
 
+#createmessage{
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background-color: red;
+}
+
 .footer{
 	width: auto;
 	height: 75px;
