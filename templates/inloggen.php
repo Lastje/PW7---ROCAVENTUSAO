@@ -12,7 +12,11 @@
 	</div>
 
 	<div class="innerContent">
-		<form id="inlogForm" method="post" action="../../PW7/inloggen/" >
+	<div id="option_menu" >
+			<div class="option_item" style="width:initial;" ><a href="../../PW7/wachtwoordvergeten/"><i class="fa fa-power-off" ></i>Wachtwoord vergeten</a></div>
+			<div class="option_item"><a href="../../PW7/registreren/"><i class="fa fa-power-off"></i>registreren</a></div>
+	</div>
+		<form style="margin-top:40px;" id="inlogForm" method="post" action="../../PW7/inloggen/" >
 		<table>
 		<tr>
 			<th colspan="2">Inloggen</th>
@@ -30,8 +34,8 @@
 			<td colspan="2"><input type="submit" value="Inloggen" name="login"> <?php //echo $_SESSION['error']; ?></td>
 		</tr>
 		<tr>
-			<td><a href="../../PW7/wachtwoordvergeten/">Wachtwoord vergeten</a></td>
-			<td><a href="../../PW7/registreren/">Registreren</a></td>
+			<td><a href="">Wachtwoord vergeten</a></td>
+			<td><a href="">Registreren</a></td>
 		</tr>
 		</table>
 		</form>
