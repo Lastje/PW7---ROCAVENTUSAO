@@ -32,6 +32,7 @@
 	}
 	else
 	{
+		$_SESSION['nameerror'] = "onbkekende gebruikersnaam";
 		header('Location: ../../PW7/wachtwoordvergeten/');
 	}
 ?>
