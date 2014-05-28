@@ -21,14 +21,17 @@ $userid = null;
 $userid = $database->userlogin($username);
 // check wachtwoord
  if($password != $passwordrepeat) {
+	$_SESSION['pwd2error'] = "de wachtwoorden komen niet overeen";
 	header('Location: ../../PW7/registreren/');
-	$_SESSION['pwderror'] = "de wachtwoorden komen niet overeen";
+
  }
 elseif(!$uppercase || !$lowercase || !$number || strlen($password) < 8 || strlen($password) > 12) {
+	$_SESSION['pwderror'] = "wacthwoord voldoet niet aan getstelde eisen.";
 	header('Location: ../../PW7/registreren/');
-	$
+	
  }
 elseif($userid != null) {
+
 	header('Location: ../../PW7/registreren/');
 }
 else {
