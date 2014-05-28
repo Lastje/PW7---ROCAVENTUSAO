@@ -18,6 +18,7 @@
 	$user;
 	$userid = null;
 	$userid = $database->userlogin($username);
+	$_SESSION['nameerror'] = null;
 	if($userid != null) {
 	// verkrijg gebruikers gegevens
 	$userid = $database->userlogin($username);
@@ -32,6 +33,7 @@
 	}
 	else
 	{
+		
 		$_SESSION['nameerror'] = "onbkekende gebruikersnaam";
 		header('Location: ../../PW7/wachtwoordvergeten/');
 	}

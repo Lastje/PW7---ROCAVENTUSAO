@@ -1,3 +1,4 @@
+
 <title>wachtwoord vergeten</title>
 <div class="content">
 
@@ -19,6 +20,7 @@
 		<div><input type="text" name="username" /> </div>
 		<div><input type="submit" value="wachtwoord opvragen" /></div>
 	</form>
+	<?php if(isset($_SESSION['nameerror'])){echo $_SESSION['nameerror'];} ?>
 	</div>
 	</div>
 	<div class="footer">
