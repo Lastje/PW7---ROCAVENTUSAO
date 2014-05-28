@@ -1,5 +1,6 @@
 <?php
-
+	session_start();
+	
 	//include config
 	include'../PW7/config/config.php';
 	
@@ -23,10 +24,13 @@
 		include'../PW7/actions/doPasswordForget.php';
 	} elseif ($globalPath == '/PW7/login/') {
 		include'../PW7/templates/inloggen.php';
+	} elseif ($globalPath == '/PW7/logout/'){
+		include'../PW7/actions/doLogout.php';
 	} else {
 		include'../PW7/templates/main.php';
-	}
+	} 
 	//include footer
 	include'../PW7/templates/footer.php'; 
 	//end of html
+
 ?>

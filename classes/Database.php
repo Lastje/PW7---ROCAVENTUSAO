@@ -15,37 +15,48 @@
 			$this->db_object = $db;
 		}
 
-		public function saveUser($user, $new=true){
-			$query_action = "INSERT INTO user";
+		public function saveUser($user, $new){
 			if(!$new) {
-				$query_action = "UPDATE INTO user WHERE $user = $user ";
-			}
-			
-			$query = ".$query_action. 	(voornaam, 
-										tussenvoegsel,
-										achternaam,
-										adres,
-										huisnummer,
-										postcode,
-										plaats,
-										email,
-										gebruikersnaam,
-										wachtwoord,
-										activated)
-			  VALUES (:voornaam,
-			  	      :tussenvoegsel,
-			  	      :achternaam,
-			  	      :adres,
-			  	      :huisnummer,
-			  	      :postcode,
-			  	      :plaats,
-			  	      :email,
-			  	      :gebruikersnaam,
-			  	      :wachtwoord,
-			  	      :activated )";
+				$query = "UPDATE user SET voornaam = :voornaam, 
+										tussenvoegsel = :tussenvoegsel,
+										achternaam = :achternaam,
+										adres = :adres,
+										huisnummer = :huisnummer,
+										postcode = :postcode,
+										plaats = :plaats,
+										email = :email,
+										gebruikersnaam = :gebruikersnaam,
+										wachtwoord = :wachtwoord,
+										activated = :activated
+						WHERE id = :id ";
+			}else {
 
-			$r = $this->db_object->prepare($query);
-			$r->execute(array(':voornaam'=>$user->voornaam,
+				$query = "INSERT INTO user (voornaam, 
+											tussenvoegsel,
+											achternaam,
+											adres,
+											huisnummer,
+											postcode,
+											plaats,
+											email,
+											gebruikersnaam,
+											wachtwoord,
+											activated)
+				  VALUES (:voornaam,
+				  	      :tussenvoegsel,
+				  	      :achternaam,
+				  	      :adres,
+				  	      :huisnummer,
+				  	      :postcode,
+				  	      :plaats,
+				  	      :email,
+				  	      :gebruikersnaam,
+				  	      :wachtwoord,
+				  	      :activated )";
+
+			}
+
+			$array = array(':voornaam'=>$user->voornaam,
 	                          ':tussenvoegsel'=>$user->tussenvoegsel,
 	                          ':achternaam'=>$user->achternaam,
 	                          ':adres'=>$user->adres,
@@ -55,7 +66,14 @@
 	                          ':email'=>$user->email,
 	                          ':gebruikersnaam'=>$user->gebruikersnaam,
 	                          ':wachtwoord'=>$user->wachtwoord,
-	                          ':activated'=>$user->activated));
+	                          ':activated'=>$user->activated);
+
+			if (!$new) {
+	            $array[':id'] = $this->userlogin($user->gebruikersnaam);
+	        }
+
+			$r = $this->db_object->prepare($query);
+			$r->execute($array);
 		}
 
 		public function getMessage($id){

@@ -1,7 +1,8 @@
 <?php
+
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	
+	 
 	//reguliere expressie in stukken
 	$uppercase = preg_match('@[A-Z]@', $password);
 	$lowercase = preg_match('@[a-z]@', $password);
@@ -16,23 +17,25 @@
 		
 		}
 		else
-		{
+		{	
 			$userid = $database->userlogin($username);
-			$user;
 			$user = $database->getUserById($userid);
 			$userdbpass = $user->wachtwoord;
 			
 			if($userdbpass == md5($password)){
 
-			$_SESSION['user'] = $user;
-			
-			//doorsturen naar main page
-			header('Location: ../../PW7/main/');
+				//$_SESSION['user'] = null;
+				//$user = serialize($user);
+				$_SESSION['userId'] = $userid;
+				//var_dump($_SESSION);
+				//exit();
+				//doorsturen naar main page
+				header('Location:../../PW7/main/');
 			}
 			else {
-			// terugsturen naar inloggen voor verkeerd wachtwoord
-			header('Location: ../../PW7/login/');
-			$_SESSION['error'] = "verkeerd wachtwoord";
+				// terugsturen naar inloggen voor verkeerd wachtwoord
+				header('Location: ../../PW7/login/');
+				$_SESSION['error'] = "verkeerd wachtwoord";
 			}
 			
 		}
