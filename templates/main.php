@@ -10,6 +10,9 @@ $user = $database->getUserById($_SESSION['userId']);
 
  	<div class="sideBar">
 		<div id="header_inbox"><i class="fa fa-inbox"></i> Inbox</div>
+		<div style="position:absolute;margin-top:10px;margin-left:10px;">
+			<a id="new_message" style="cursor:pointer;"><i class="fa fa-plus-square"></i> Nieuwe bericht</a>
+		</div>
 	</div>
 
 	<div class="innerContent">
@@ -104,18 +107,12 @@ $user = $database->getUserById($_SESSION['userId']);
 					//var_dump($user);
 
 					$user->write(false);
-
-					?>
-					<script type="text/javascript"></script>
-					<?php
 				}
 			}
 
 
 
 		?>
-			
-		
 
         <div id="createmessage">
             
@@ -126,6 +123,14 @@ $user = $database->getUserById($_SESSION['userId']);
 	<div class="footer">
 		<div id="footer_text"><i class="fa fa-info-circle"></i> Versie 1.0 </div>
 	</div>
+
+	<script type="text/javascript">
+		$('#createmessage').hide();
+
+		$('#new_message').bind('click',function(){
+			$('#createmessage').toggle();
+		});
+	</script>
 
 
 </div>

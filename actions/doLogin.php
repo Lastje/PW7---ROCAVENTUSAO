@@ -10,14 +10,14 @@
 	
 	if(isset($_POST['username']) && isset($_POST['password'])) {
 
-		if(!$uppercase || !$lowercase || !$number || strlen($password) < 8 || strlen($password) > 12) {
+		//if(!$uppercase || !$lowercase || !$number || strlen($password) < 8 || strlen($password)) {
 		// geef error voor verkeerde invoer
-		$_SESSION['error'] = "Uw ingevoerde wachtwoord voldoet niet aan de gestelde eisen";
-		header('Location: ../../PW7/login/');
+		//$_SESSION['error'] = "Uw ingevoerde wachtwoord voldoet niet aan de gestelde eisen";
+		//header('Location: ../../PW7/login/');
 		
-		}
-		else
-		{	
+		//}
+		//else
+		//{	
 			$userid = $database->userlogin($username);
 			$user = $database->getUserById($userid);
 			$userdbpass = $user->wachtwoord;
@@ -38,7 +38,7 @@
 				$_SESSION['error'] = "verkeerd wachtwoord";
 			}
 			
-		}
+		//}
 		
 		
 	}

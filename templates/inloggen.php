@@ -27,7 +27,7 @@
 			<input type="hidden" name="controle" value="test" />
 		</tr>
 		<tr>
-			<td colspan="2"><input type="submit" value="Inloggen" name="login"> <?php echo $_SESSION['error']; ?></td>
+			<td colspan="2"><input type="submit" value="Inloggen" name="login"> <?php //echo $_SESSION['error']; ?></td>
 		</tr>
 		<tr>
 			<td><a href="../../PW7/wachtwoordvergeten/">Wachtwoord vergeten</a></td>
