@@ -31,23 +31,24 @@ function randCode() {
 $userid = null;
 $userid = $database->userlogin($username);
 // check wachtwoord
+$agree=true;
  if($password != $passwordrepeat) {
-	$_SESSION['pwd2error'] = "de wachtwoorden komen niet overeen";
-	echo "wachtwoord komt niet overeen";
-	exit;
-	//header('Location: ../../PW7/registreren/');
+	$_SESSION['pwd2error'] = "de wachtwoorden komen niet overeen";	
+	$agree = false;
 
  }
-elseif(!$uppercase || !$lowercase || !$number || strlen($password) < 8 || strlen($password) > 12) {
+if(!$uppercase || !$lowercase || !$number || strlen($password) < 8 || strlen($password) > 12) {
 	$_SESSION['pwderror'] = "wacthwoord voldoet niet aan getstelde eisen.";
-	echo "wacht woord is niet goed genoeg";
-	exit;
-	//header('Location: ../../PW7/registreren/');
+	$agree=false;
  }
-elseif($userid != null) {
-	echo "gebuiernaa bestaatal";
-	exit;
-	//header('Location: ../../PW7/registreren/');
+if($userid != null) {
+	$_SESSION['usernameex'] = "gebruikersnaam is al in gebruik";
+	$agree = false;
+}
+
+if(!$agree)
+{
+	header('Location: ../../PW7/registreren/');
 }
 else {
 $code =  randCode();

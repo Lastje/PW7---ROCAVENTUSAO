@@ -20,7 +20,7 @@
 		<div><input type="text" name="username" /> </div>
 		<div><input type="submit" value="wachtwoord opvragen" /></div>
 	</form>
-	<?php if(isset($_SESSION['nameerror'])){echo $_SESSION['nameerror'];} ?>
+	<?php if(isset($_SESSION['nameerror'])){echo $_SESSION['nameerror'];}$_SESSION['nameerror']=NULL; ?>
 	</div>
 	</div>
 	<div class="footer">

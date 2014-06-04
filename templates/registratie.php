@@ -1,3 +1,4 @@
+<title> Registeren</title>
 <div class="content">
     <div class="header">
         <h1 id="header_h1">Registeren in het systeem</h1>
@@ -36,11 +37,12 @@
                 </tr>
                 <tr>
                     <td>Straat en huisnummer</td>
-                    <td><input type="text" name="Adres"> <input type="text" name="huisnummer" style="width:35px;" maxlength="5"></td>
-                </tr>
+                    <td><input type="text" name="Adres"></td>
+					<td><input type="text" name="huisnummer" style="width:35px;" maxlength="5"></td>
+				</tr>
                 <tr>
                     <td>Postcode</td>
-                    <td><input type="text" name="Postcode"></td>
+                    <td><input type="text" name="Postcode" maxlength="6"></td>
                 </tr>
                 <tr>
                     <td>Plaats</td>
@@ -55,15 +57,24 @@
                     <td><input type="text" name="Gebruikersnaam"></td>
                     <td><i id="question_gb" class="fa fa-question-circle"></td>
                 </tr>
+				<tr>
+					<td><?php if(isset($_SESSION['usernameex'])){echo $_SESSION['usernameex'];} $_SESSION['usernameex']=NULL;  ?> </td>
+				</tr>
                 <tr>
                     <td>E-mail</td>
                     <td><input type="text" name="E-mail"></td>
                 </tr>
+				<tr>
+					<td><?php if(isset($_SESSION['pwderror'])){echo $_SESSION['pwderror'];} $_SESSION['pwderror']=NULL;  ?> </td>
+				</tr>
                 <tr>
                     <td>Wachtwoord</td>
                     <td><input type="password" name="pwd"></td>
                     <td><i id="question_ww" class="fa fa-question-circle"></td>
                 </tr>
+				<tr>
+					<td><?php if(isset($_SESSION['pwd2error'])){echo $_SESSION['pwd2error'];} $_SESSION['pwd2error']=NULL;  ?> </td>
+				</tr>
                 <tr>
                     <td>Herhaal wachtwoord</td>
                     <td><input type="password" name="pwd2"></td>
