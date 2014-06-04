@@ -26,23 +26,26 @@ function randCode() {
 	$uppercase = preg_match('@[A-Z]@', $password);
 	$lowercase = preg_match('@[a-z]@', $password);
 	$number    = preg_match('@[0-9]@', $password);
-
 	//check of gebruikersnaam al bestaat
 $userid = null;
 $userid = $database->userlogin($username);
 // check wachtwoord
 $agree=true;
  if($password != $passwordrepeat) {
-	$_SESSION['pwd2error'] = "de wachtwoorden komen niet overeen";	
+	$_SESSION['pwd2error'] = "<p class='error1'>De wachtwoorden komen niet overeen.</p>";	
 	$agree = false;
-
+ }
+ if(!preg_match("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", $email))
+ {
+	$_SESSION['email'] = "<p class='error1'>Geen of ongeldig email.</p>";
+	$agree = false;	
  }
 if(!$uppercase || !$lowercase || !$number || strlen($password) < 8 || strlen($password) > 12) {
-	$_SESSION['pwderror'] = "wacthwoord voldoet niet aan getstelde eisen.";
+	$_SESSION['pwderror'] = "<p class='error1'>wacthwoord voldoet niet aan getstelde eisen.</p>";
 	$agree=false;
  }
 if($userid != null) {
-	$_SESSION['usernameex'] = "gebruikersnaam is al in gebruik";
+	$_SESSION['usernameex'] = "<p class='error1'>Gebruikersnaam is al in gebruik</p>";
 	$agree = false;
 }
 
