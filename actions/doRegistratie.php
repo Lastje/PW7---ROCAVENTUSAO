@@ -72,7 +72,7 @@ $user = new User();
 	$user->plaats = $city;
 	$user->email = $email;
 	$user->gebruikersnaam = $username;
-	$user->wachtwoord = $password;
+	$user->wachtwoord = md5($password);
 	$user->activated = $code;
 	//write to Database
 	$user->write($user);

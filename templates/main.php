@@ -1,6 +1,7 @@
 <?php 
 
 if(isset($_SESSION['userId'])) {
+$userId = $_SESSION['userId'];
 $user = $database->getUserById($_SESSION['userId']);
 ?>
 <div class="content">
@@ -144,9 +145,10 @@ $user = $database->getUserById($_SESSION['userId']);
         <div style="position:absolute;padding-left:10px;">
             <h2>Uw account is nog niet geactiveerd!</h2>
             <p>Vul de code in die verstuurd is naar uw email:</p>
-            <form>
+            <form action="../../PW7/activeren/" method="post">
                 <input type="text" name="code" /> 
                 <input type="submit" name="activeren" value="activeren">
+                <input type="hidden" name="id" value="<?php echo $userId; ?>">
             </form>
             <br />
             <i class="fa fa-power-off"></i><a href="/PW7/logout/"> Uitloggen</a>

@@ -26,7 +26,9 @@
 		include'../PW7/templates/inloggen.php';
 	} elseif ($globalPath == '/PW7/logout/'){
 		include'../PW7/actions/doLogout.php';
-	} else {
+	} elseif ($globalPath == '/PW7/activeren/'){
+		include'../PW7/actions/doActivate.php';
+	}else {
 		include'../PW7/templates/main.php';
 	} 
 	//include footer
