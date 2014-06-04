@@ -8,45 +8,28 @@
 	$lowercase = preg_match('@[a-z]@', $password);
 	$number    = preg_match('@[0-9]@', $password);
 	
-	if(isset($_POST['username']) && isset($_POST['password'])) {
-
-		//if(!$uppercase || !$lowercase || !$number || strlen($password) < 8 || strlen($password)) {
-		// geef error voor verkeerde invoer
-		//$_SESSION['error'] = "Uw ingevoerde wachtwoord voldoet niet aan de gestelde eisen";
-		//header('Location: ../../PW7/login/');
+	if(!empty($_POST['username']) && !empty($_POST['password'])) {
 		
-		//}
-		//else
-		//{	
 			$userid = $database->userlogin($username);
 			$user = $database->getUserById($userid);
 			$userdbpass = $user->wachtwoord;
 			
 			if($userdbpass == md5($password)){
 
-				//$_SESSION['user'] = null;
-				//$user = serialize($user);
 				$_SESSION['userId'] = $userid;
-				//var_dump($_SESSION);
-				//exit();
 				//doorsturen naar main page
 				header('Location:../../PW7/main/');
 			}
 			else {
 				// terugsturen naar inloggen voor verkeerd wachtwoord
 				header('Location: ../../PW7/login/');
-				$_SESSION['error'] = "verkeerd wachtwoord";
+				$_SESSION["error"] = "<p class='error1'>Gebruikernaam en/of wachtwoord is/zijn incorrect.</p>";
 			}
-			
-		//}
-		
-		
 	}
 	else
 	{
+		$_SESSION["error"] = "<p class='error1'>Gebruikernaam en/of wachtwoord is/zijn leeg.</p>";
 	header('Location: ../../PW7/login/');
-	exit;
-	
 	}
 	
 ?>

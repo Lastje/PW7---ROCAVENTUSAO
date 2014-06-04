@@ -28,10 +28,12 @@
 		<tr>
 			<td>Wachtwoord</td>
 			<td><input type="password" name="password"/></td>
-			<input type="hidden" name="controle" value="test" />
 		</tr>
 		<tr>
 			<td colspan="2"><input type="submit" value="Inloggen" name="login"> <?php //echo $_SESSION['error']; ?></td>
+		</tr>
+		<tr>
+			<td colspan="2"><?php if(isset($_SESSION['error'])){echo $_SESSION['error'];} $_SESSION['error']=NULL;  ?></td>
 		</tr>
 		</table>
 		</form>

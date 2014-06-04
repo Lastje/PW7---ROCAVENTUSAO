@@ -18,7 +18,7 @@ body{
 #option_menu {
 	background-color: yellow;
 	width: 750px;
-	height: 45px;
+	height: 40px;
 	position: absolute;
 	background: #fcfff4; /* Old browsers */
 	background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 65%); /* FF3.6+ */
@@ -33,7 +33,7 @@ body{
 .option_item {
 	cursor: pointer;
 	position: relative;
-	height: 39px;
+	height: 34px;
 	width: 150px;
 	background-color: red;
 	float: left;

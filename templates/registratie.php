@@ -68,7 +68,7 @@
                     <td><input type="text" name="E-mail"></td>
                 </tr>
 				<tr>
-					<?php if(isset($_SESSION['pwderror'])){echo $_SESSION['pwderror'];} $_SESSION['pwderror']=NULL;  ?>
+					<td><?php if(isset($_SESSION['pwderror'])){echo $_SESSION['pwderror'];} $_SESSION['pwderror']=NULL;  ?></td>
 				</tr>
                 <tr>
                     <td>Wachtwoord</td>
