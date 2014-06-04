@@ -38,6 +38,8 @@ $user = $database->getUserById($_SESSION['userId']);
 		</div>
 		<div id="my_profile">
 			<form method="post" action="">
+            <br />
+            <br />
             <table>
                 <tr>
                     <td><strong><i class="fa fa-edit"></i> Persoonlijke gegevens:</strong></td>
