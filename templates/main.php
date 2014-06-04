@@ -8,6 +8,7 @@ $user = $database->getUserById($_SESSION['userId']);
  		<h1 id="header_h1">Welkom <?php echo $user->getName(); ?></h1>
  	</div>
 
+<?php if($user->activated == 1) { ?>
  	<div class="sideBar">
 		<div id="header_inbox"><i class="fa fa-inbox"></i> Inbox</div>
 		<div style="position:absolute;margin-top:10px;margin-left:10px;">
@@ -15,6 +16,7 @@ $user = $database->getUserById($_SESSION['userId']);
 			<hr>
 		</div>
 		<div id="inbox">
+			<?php $user->getMessages(); ?>
 			<!--<div id="message">
 			Van: <br />
 			Onderwerp: <br />
@@ -132,7 +134,27 @@ $user = $database->getUserById($_SESSION['userId']);
         </div>
 
 	</div>
+    <?php }else{ ?>
 
+    <div class="sideBar"> </div>
+
+    <div class="innerContent">
+        <div style="position:absolute;padding-left:10px;">
+            <h2>Uw account is nog niet geactiveerd!</h2>
+            <p>Vul de code in die verstuurd is naar uw email:</p>
+            <form>
+                <input type="text" name="code" /> 
+                <input type="submit" name="activeren" value="activeren">
+            </form>
+            <br />
+            <i class="fa fa-power-off"></i><a href="/PW7/logout/"> Uitloggen</a>
+        </div>
+    </div>
+
+
+
+
+    <?php } ?>
 	<div class="footer">
 		<div id="footer_text"><i class="fa fa-info-circle"></i> Versie 1.0 </div>
 	</div>
@@ -143,6 +165,19 @@ $user = $database->getUserById($_SESSION['userId']);
 		$('#new_message').bind('click',function(){
 			$('#createmessage').toggle();
 		});
+
+        //messagehandling
+        $('.message_text').hide();
+        $(document).ready(function(){
+            $(".message_object").click(function(){
+                var id = $(this).attr('id');
+                id = id.replace('message_', '');
+            $("#bericht_" + id).toggle();
+            });
+        });
+        
+
+
 	</script>
 
 

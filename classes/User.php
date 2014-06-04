@@ -56,13 +56,14 @@
   		}
 
   		public function getMessages(){
-  			$id = $database->userlogin($this->gebruikersnaam);
+  			$id = $this->database->userlogin($this->gebruikersnaam);
 
   			$query = "SELECT * FROM message WHERE ontvanger_id = :id";
-			$r = $this->database->prepare($query);
-			$r->execute(array(':u'=>$id));
+			$r = $this->database->db_object->prepare($query);
+			$r->execute(array(':id'=>$id));
 			
 			while($row = $r->fetch(PDO::FETCH_ASSOC)){
+				$id = $row['id'];
 				$message_a = array();
 				$message_a['berichttekst'] = $row['berichttekst'];
 				$message_a['onderwerp'] = $row['onderwerp'];
@@ -71,12 +72,13 @@
 				$message_a['datum'] = $row['datum'];
 
 				$message = new Message($message_a,true);
-				$afzender = $database->getUserById($message_a['afzender_id']);
+				$afzender = $this->database->getUserById($message_a['afzender_id']);
 
-				$html = "<div id='message'>
-						Van: " . $afzender->getName() . "<br />
-						Onderwerp: " . $message->onderwerp . "<br />
-						Datum: " . $message->datum . "<br />
+				$html = "<div id='message_".$id."' class='message_object'>
+						<strong>Van: </strong>" . $afzender->getName() . "<br />
+						<strong>Onderwerp: </strong>" . $message->onderwerp . "<br />
+						<strong>Datum: </strong>" . $message->datum . "<br />
+						<span class='message_text' id='bericht_" .$id. "' ><strong>Bericht: </strong>" . $message->berichtTekst . "</span><br />
 						</div>";
 
 				echo $html;

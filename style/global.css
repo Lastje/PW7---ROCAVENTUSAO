@@ -86,7 +86,6 @@ body{
 	width: 250px;
 	float: right;
 	background-color: #8BA0FF;
-
 }
 
 #header_inbox {
@@ -149,20 +148,28 @@ a {
 }
 
 #my_profile {
-	
-}
-
-#inbox {
-	background-color: red;
 	position: absolute;
 	margin-top: 60px;
 	margin-left: 10px;
-	height: auto;
+
 }
 
-#message {
-	background-color: yellow;
+#inbox {
+	position: absolute;
+	margin-top: 60px;
+	height: 550px;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+.message_object {
+	cursor: pointer;
+	background-color: white;
 	position: relative;
 	float: top;
 	margin-top: 5px;
+	margin-left: 3px;
+	width: 228px;
+	border: 1px solid black;
+
 }
