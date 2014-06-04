@@ -14,7 +14,7 @@ function randCode() {
 	 $insertion = $_POST['Tussenvoegsel'];
 	 $lastname = $_POST['Achternaam'];
 	 $street = $_POST['Adres'];
-	 $number = 0;
+	 $number = $_POST['huisnummer'];
 	 $pc = $_POST['Postcode'];
 	 $city = $_POST['Plaats'];
 	 $username = $_POST['Gebruikersnaam'];
@@ -55,7 +55,7 @@ $code =  randCode();
 $mail = $email;
 $subject = "activeer u account";
 $from = "pw7@pw7.nl";
-$message = "uw activeringscode is: ". $code. " voer deze na het inloggen in om toegang te krijgen tot alle mogelijkheden";
+$message = "uw activeringscode is: <b>". $code. "</b> voer deze na het inloggen in om toegang te krijgen tot alle mogelijkheden";
 
 // user object
 $user = new User();

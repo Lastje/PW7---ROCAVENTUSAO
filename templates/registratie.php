@@ -35,8 +35,8 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Straatnaam</td>
-                    <td><input type="text" name="Adres"></td>
+                    <td>Straat en huisnummer</td>
+                    <td><input type="text" name="Adres"> <input type="text" name="huisnummer" style="width:35px;" maxlength="5"></td>
                 </tr>
                 <tr>
                     <td>Postcode</td>
