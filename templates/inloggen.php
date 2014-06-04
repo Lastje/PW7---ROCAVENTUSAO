@@ -16,7 +16,7 @@
 			<div class="option_item" style="width:initial;" ><a href="../../PW7/wachtwoordvergeten/"><i class="fa fa-power-off" ></i>Wachtwoord vergeten</a></div>
 			<div class="option_item"><a href="../../PW7/registreren/"><i class="fa fa-power-off"></i>registreren</a></div>
 	</div>
-		<form style="margin-top:40px;" id="inlogForm" method="post" action="../../PW7/inloggen/" >
+		<form style="margin-top:100px;" id="inlogForm" method="post" action="../../PW7/inloggen/" >
 		<table>
 		<tr>
 			<th colspan="2">Inloggen</th>
@@ -32,10 +32,6 @@
 		</tr>
 		<tr>
 			<td colspan="2"><input type="submit" value="Inloggen" name="login"> <?php //echo $_SESSION['error']; ?></td>
-		</tr>
-		<tr>
-			<td><a href="">Wachtwoord vergeten</a></td>
-			<td><a href="">Registreren</a></td>
 		</tr>
 		</table>
 		</form>
