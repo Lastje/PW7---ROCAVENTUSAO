@@ -105,10 +105,13 @@ body{
 }
 
 #createmessage{
+	margin-top: 10px;
     position: fixed;
-    width: 500px;
-    height: 500px;
-    background-color: red;
+    width: 800px;
+    height: 300px;
+    padding: 10px;
+    background-color: #B3BEAD;
+    border: 1px solid black;
 }
 
 .footer{

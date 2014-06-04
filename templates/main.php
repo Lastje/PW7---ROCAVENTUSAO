@@ -5,38 +5,40 @@ $userId = $_SESSION['userId'];
 $user = $database->getUserById($_SESSION['userId']);
 ?>
 <div class="content">
- 	<div class="header">
- 		<h1 id="header_h1">Welkom <?php echo $user->getName(); ?></h1>
- 	</div>
+    <div class="header">
+        <h1 id="header_h1">Welkom <?php echo $user->getName(); ?></h1>
+    </div>
 
- 	<div class="sideBar">
-		<div id="header_inbox"><i class="fa fa-inbox"></i> Inbox</div>
-		<div style="position:absolute;margin-top:10px;margin-left:10px;">
-			<a id="new_message" style="cursor:pointer;"><i class="fa fa-plus-square"></i> Nieuwe bericht</a>
-			<hr>
-		</div>
-		<div id="inbox">
-			<!--<div id="message">
-			Van: <br />
-			Onderwerp: <br />
-			Datum: <br />
-			</div>
-			<div id="message">
-			Van: test <br />
-			Onderwerp: <br />
-			Datum: <?php var_dump($user->id); ?><br />
-			</div>-->
-		</div>
-	</div>
+<?php if($user->activated == 1) { ?>
+    <div class="sideBar">
+        <div id="header_inbox"><i class="fa fa-inbox"></i> Inbox</div>
+        <div style="position:absolute;margin-top:10px;margin-left:10px;">
+            <a id="new_message" style="cursor:pointer;"><i class="fa fa-plus-square"></i> Nieuwe bericht</a>
+            <hr>
+        </div>
+        <div id="inbox">
+            <?php $user->getMessages(); ?>
+            <!--<div id="message">
+            Van: <br />
+            Onderwerp: <br />
+            Datum: <br />
+            </div>
+            <div id="message">
+            Van: test <br />
+            Onderwerp: <br />
+            Datum: <?php var_dump($user->id); ?><br />
+            </div>-->
+        </div>
+    </div>
 
-	<div class="innerContent">
-		<div id="option_menu">
-			<div class="option_item"><i class="fa fa-pencil"></i> Profiel</div>
-			<div class="option_item"><a href="/PW7/logout/"><i class="fa fa-power-off"></i> Uitloggen</a></div>
+    <div class="innerContent">
+        <div id="option_menu">
+            <div class="option_item"><i class="fa fa-pencil"></i> Profiel</div>
+            <div class="option_item"><a href="/PW7/logout/"><i class="fa fa-power-off"></i> Uitloggen</a></div>
 
-		</div>
-		<div id="my_profile">
-			<form method="post" action="">
+        </div>
+        <div id="my_profile">
+            <form method="post" action="">
             <br />
             <br />
             <table>
@@ -99,50 +101,49 @@ $user = $database->getUserById($_SESSION['userId']);
             <input type="submit" value="Opslaan"/>
         </form>
 
-		</div>
+        </div>
 
-		<?php 
+        <?php 
 
-			if(isset($_POST['voornaam'])){
-				if (($_POST['pwd'] == $_POST['pwd2'] || $_POST['pwd'] == 'wachtwoord123') && !empty($_POST['email']) && !empty($_POST['gebruikersnaam'])) {
+            if(isset($_POST['voornaam'])){
+                if (($_POST['pwd'] == $_POST['pwd2'] || $_POST['pwd'] == 'wachtwoord123') && !empty($_POST['email']) && !empty($_POST['gebruikersnaam'])) {
 
-					$user->voornaam = $_POST['voornaam'];
-					$user->tussenvoegsel = $_POST['tussenvoegsel'];
-					$user->achternaam = $_POST['achternaam'];
-					$user->adres = $_POST['adres'];
-					//$user->huisnummer = $_POST['huisnummer'];
-					$user->postcode = $_POST['postcode'];
-					$user->plaats = $_POST['plaats'];
-					$user->email = $_POST['email'];
-					$user->gebruikersnaam = $_POST['gebruikersnaam'];
-					if($_POST['pwd'] != 'wachtwoord123'){
-						$user->wachtwoord = md5($_POST['pwd']);
-					}
-					$user->activated = $_POST['activated'];
+                    $user->voornaam = $_POST['voornaam'];
+                    $user->tussenvoegsel = $_POST['tussenvoegsel'];
+                    $user->achternaam = $_POST['achternaam'];
+                    $user->adres = $_POST['adres'];
+                    //$user->huisnummer = $_POST['huisnummer'];
+                    $user->postcode = $_POST['postcode'];
+                    $user->plaats = $_POST['plaats'];
+                    $user->email = $_POST['email'];
+                    $user->gebruikersnaam = $_POST['gebruikersnaam'];
+                    if($_POST['pwd'] != 'wachtwoord123'){
+                        $user->wachtwoord = md5($_POST['pwd']);
+                    }
+                    $user->activated = $_POST['activated'];
 
-					//var_dump($user);
+                    //var_dump($user);
 
-					$user->write(false);
-				}
-			}
-		?>
+                    $user->write(false);
+                }
+            }
+
+
+
+        ?>
 
         <div id="createmessage">
-                <form action="MAILTO:someone@example.com" method="post" enctype="text/plain">
-                Name:<br>
-                <input type="text" name="name" value="your name"><br>
-                E-mail:<br>
-                <input type="text" name="mail" value="your email"><br>
-                Comment:<br>
-                <input type="text" name="comment" value="your comment" size="50"><br><br>
-                <input type="submit" value="Send">
-                <input type="reset" value="Reset">
+                <form action="" method="post">
+                <input style="width:800px;" type="text" name="name" placeholder="aan" value=""><br>
+                <input style="width:800px;" type="text" name="mail" placeholder="onderwerp" value=""><br>
+                <p>Bericht:</p>
+                <textarea style="width:800px;height:100px;resize:none"></textarea>
+                <input type="submit" value="Verzenden">
+                <input id="closeMenu" type="button" value="Annuleren">
                 </form>
         </div>
 
-	</div>
-<<<<<<< HEAD
-=======
+    </div>
     <?php }else{ ?>
 
     <div class="sideBar"> </div>
@@ -161,24 +162,46 @@ $user = $database->getUserById($_SESSION['userId']);
         </div>
     </div>
 
->>>>>>> 0c6f2e1f2d374e97a1c96b7c3948a9c3c639c9bf
 
-	<div class="footer">
-		<div id="footer_text"><i class="fa fa-info-circle"></i> Versie 1.0 </div>
-	</div>
 
-	<script type="text/javascript">
-		$('#createmessage').hide();
 
-		$('#new_message').bind('click',function(){
-			$('#createmessage').toggle();
-		});
-	</script>
+    <?php } ?>
+    <div class="footer">
+        <div id="footer_text"><i class="fa fa-info-circle"></i> Versie 1.0 </div>
+    </div>
+
+    <script type="text/javascript">
+        $('#createmessage').hide();
+
+        $('#new_message').bind('click',function(){
+            $('#createmessage').toggle();
+        });
+
+        //messagehandling
+        $('.message_text').hide();
+        $(document).ready(function(){
+            $(".message_object").click(function(){
+                var id = $(this).attr('id');
+                id = id.replace('message_', '');
+            $("#bericht_" + id).toggle();
+            });
+        });
+        
+        $('#closeMenu').click(function(){
+            $('#createmessage').toggle();
+        });
+
+
+    </script>
+
 
 </div>
 
 <?php } else {
 
-	header('location:/PW7/inloggen/');
+    header('location:/PW7/inloggen/');
+
+
+
 
 } ?>
