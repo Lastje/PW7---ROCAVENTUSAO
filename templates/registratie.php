@@ -60,12 +60,15 @@
 				<tr>
 					<td><?php if(isset($_SESSION['usernameex'])){echo $_SESSION['usernameex'];} $_SESSION['usernameex']=NULL;  ?> </td>
 				</tr>
+				<tr>
+					<td> <?php if(isset($_SESSION['email'])){echo $_SESSION['email'];} $_SESSION['email']=NULL;  ?></td>
+				</tr>
                 <tr>
                     <td>E-mail</td>
                     <td><input type="text" name="E-mail"></td>
                 </tr>
 				<tr>
-					<td><?php if(isset($_SESSION['pwderror'])){echo $_SESSION['pwderror'];} $_SESSION['pwderror']=NULL;  ?> </td>
+					<?php if(isset($_SESSION['pwderror'])){echo $_SESSION['pwderror'];} $_SESSION['pwderror']=NULL;  ?>
 				</tr>
                 <tr>
                     <td>Wachtwoord</td>

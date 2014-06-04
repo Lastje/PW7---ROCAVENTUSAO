@@ -1,6 +1,7 @@
 <?php 
 
 if(isset($_SESSION['userId'])) {
+$userId = $_SESSION['userId'];
 $user = $database->getUserById($_SESSION['userId']);
 ?>
 <div class="content">
@@ -140,6 +141,27 @@ $user = $database->getUserById($_SESSION['userId']);
         </div>
 
 	</div>
+<<<<<<< HEAD
+=======
+    <?php }else{ ?>
+
+    <div class="sideBar"> </div>
+
+    <div class="innerContent">
+        <div style="position:absolute;padding-left:10px;">
+            <h2>Uw account is nog niet geactiveerd!</h2>
+            <p>Vul de code in die verstuurd is naar uw email:</p>
+            <form action="../../PW7/activeren/" method="post">
+                <input type="text" name="code" /> 
+                <input type="submit" name="activeren" value="activeren">
+                <input type="hidden" name="id" value="<?php echo $userId; ?>">
+            </form>
+            <br />
+            <i class="fa fa-power-off"></i><a href="/PW7/logout/"> Uitloggen</a>
+        </div>
+    </div>
+
+>>>>>>> 0c6f2e1f2d374e97a1c96b7c3948a9c3c639c9bf
 
 	<div class="footer">
 		<div id="footer_text"><i class="fa fa-info-circle"></i> Versie 1.0 </div>

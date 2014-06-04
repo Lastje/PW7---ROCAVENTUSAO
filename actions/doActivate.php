@@ -1,39 +1,20 @@
-<?php 
-  ini_set( 'display_errors', 1 );
-  error_reporting( E_ALL ); 
-//Start van sessies
-session_start();
-$_SESSION['gebruikersnaam']= $_GET['gebruikersnaam'];
-$_SESSION['email']= $_GET['email'];
-?><?
-$gebruikersnaam = $_SESSION['gebruikersnaam'];
-$email = $_SESSION['email'];
-?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html><head><title>Activatie van uw account</title></head><body>
-<?
-echo "Hallo, uw account $gebruikersnaam wordt geactiveerd na het drukken op de activatie knop.";
-?><br>
-<form action="" method="post">
-<input type="submit" name="activeer" value="activeer"/><?php
-if(isset($_POST['activeer']))
-{
-$con = mysql_connect( "localhost","oddes_nl_Project","bCCUkoXa" );
-    if( !$con )
-    {
-    die( 'Could not connect: ' . mysql_error( ) );
-    }
+<?php
+if(isset($_POST['code'])){
+	$id = $_POST['id'];
+	$code = $_POST['code'];
 
-mysql_select_db('oddesigners_nl_Project', $con);
-$sql = mysql_query("SELECT gebruikersnaam, activated FROM user");
+	$user = $database->getUserById($_SESSION['userId']);
+	
+	if($user->activated == $code){
+		$user->activated = 1;
+		$user->write(false);
+	}
+	
+	header('Location: ../../PW7/main/');
 
-mysql_query("UPDATE user SET activated = '2' WHERE gebruikersnaam = '$gebruikersnaam'");
-?><h3>Uw account is nu geactiveerd!</h3><?
-mysql_close($con);
+}else{
+	echo "wrong code";
 }
-else
-{
-}
+
+
 ?>
-</body>
-</html>
