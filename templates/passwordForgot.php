@@ -1,4 +1,3 @@
-
 <title>wachtwoord vergeten</title>
 <div class="content">
 
@@ -17,8 +16,8 @@
 		<div style="position:absolute; margin-top:40px; margin-left:10px;">
 		<h3>Wachtwoord opvragen</h3>
 		<form method="post" action="../../PW7/DopasswordForgot/">
-			<div>Voer uw gebruikersnaam in om een nieuw wachtwoord aan te vragen. </div>
-			<div><input style="width:400px;"type="text" name="username" /> </div>
+			<div>Voer uw gebruikersnaam in:</div>
+			<div><input style="width:300px;"type="text" name="username" /> </div>
 			<div><input  type="submit" value="wachtwoord opvragen" /></div>
 		</form>
 		<?php if(isset($_SESSION['nameerror'])){echo $_SESSION['nameerror'];}$_SESSION['nameerror']=NULL; ?>
@@ -26,6 +25,5 @@
 	</div>
 	<div class="footer">
 		<div id="footer_text"><i class="fa fa-info-circle"></i> Versie 1.0 </div>
-	</div>
-	
+	</div>	
 </div>

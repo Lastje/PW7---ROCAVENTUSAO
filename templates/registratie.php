@@ -1,7 +1,7 @@
 <title> Registeren</title>
 <div class="content">
     <div class="header">
-        <h1 id="header_h1">Registeren in het systeem</h1>
+        <h1 id="header_h1">Registeren</h1>
     </div>
 
     <div class="sideBar">
