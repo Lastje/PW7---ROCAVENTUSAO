@@ -8,7 +8,7 @@
  	</div>
 
  	<div class="sideBar">
-		<div id="header_inbox"><i class="fa fa-inbox"></i> Informatie</div>
+		<div id="header_inbox"><i class="fa fa-info"></i> Informatie</div>
 	</div>
 
 	<div class="innerContent">
