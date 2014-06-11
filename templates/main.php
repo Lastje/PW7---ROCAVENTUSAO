@@ -64,7 +64,7 @@ $user = $database->getUserById($_SESSION['userId']);
                 </tr>
                 <tr>
                     <td>Straatnaam</td>
-                    <td><input type="text" name="adres" value="<?php if(isset($_POST['adres'])){ echo $_POST['adres']; }else{echo $user->adres;} ?>"></td>
+                    <td><input type="text" name="adres" value="<?php if(isset($_POST['adres'])){ echo $_POST['adres']; }else{echo $user->adres;} ?>"></td><td><input style="width:35px" type="text" name="huisnummer" value="<?php if(isset($_POST['huisnummer'])){ echo $_POST['huisnummer']; }else{echo $user->huisnummer;} ?>"></td>
                 </tr>
                 <tr>
                     <td>Postcode</td>
@@ -112,7 +112,7 @@ $user = $database->getUserById($_SESSION['userId']);
                     $user->tussenvoegsel = $_POST['tussenvoegsel'];
                     $user->achternaam = $_POST['achternaam'];
                     $user->adres = $_POST['adres'];
-                    //$user->huisnummer = $_POST['huisnummer'];
+                    $user->huisnummer = $_POST['huisnummer'];
                     $user->postcode = $_POST['postcode'];
                     $user->plaats = $_POST['plaats'];
                     $user->email = $_POST['email'];

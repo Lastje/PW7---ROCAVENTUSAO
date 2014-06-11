@@ -42,6 +42,4 @@
 	<div class="footer">
 		<div id="footer_text"><i class="fa fa-info-circle"></i> Versie 1.0 </div>
 	</div>
-
 </div>
-
