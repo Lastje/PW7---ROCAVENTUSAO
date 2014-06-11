@@ -4,7 +4,7 @@
 <title>Inloggen</title>
 <div class="content">
  	<div class="header">
- 		<h1 id="header_h1">Inloggen op de applicatie</h1>
+ 		<h1 id="header_h1">Inloggen</h1>
  	</div>
 
  	<div class="sideBar">

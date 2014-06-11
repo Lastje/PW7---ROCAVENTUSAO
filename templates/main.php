@@ -6,7 +6,7 @@ $user = $database->getUserById($_SESSION['userId']);
 ?>
 <div class="content">
     <div class="header">
-        <h1 id="header_h1">Welkom <?php echo $user->getName(); ?></h1>
+        <h1 id="header_h1">Welkom, <?php echo $user->getName(); ?></h1>
     </div>
 
 <?php if($user->activated == 1) { ?>

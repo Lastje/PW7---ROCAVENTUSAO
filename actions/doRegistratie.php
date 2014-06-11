@@ -35,7 +35,7 @@ $agree=true;
 	$_SESSION['pwd2error'] = "<p class='error1'>De wachtwoorden komen niet overeen.</p>";	
 	$agree = false;
  }
- if(!preg_match("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", $email))
+ if(!filter_var($email, FILTER_VALIDATE_EMAIL))
  {
 	$_SESSION['email'] = "<p class='error1'>Geen of ongeldig email.</p>";
 	$agree = false;	
@@ -57,9 +57,14 @@ else {
 $code =  randCode();
 // maak activatie mail met code
 $mail = $email;
-$subject = "activeer u account";
-$from = "pw7@pw7.nl";
-$message = "uw activeringscode is: <b>". $code. "</b> voer deze na het inloggen in om toegang te krijgen tot alle mogelijkheden";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . '\r\n';
+$headers .= 'From: Webmaster PW7 <webmaster@pw7.com>' . '\r\n';
+$subject = "Activeringscode voor PW7";
+$message = "Geachte heer/mevrouw, <br /><br />";
+$message .= "Hierbij uw activeringscode voor projectwijzer 7. <br />";
+$message .= "Uw activeringscode is: <b>". $code. "<br /> <br />";
+$message .= "Met vriendelijke groet, <br /> <br />";
+$message .= "Webmaster van Projectwijzer 7";
 
 // user object
 $user = new User();
@@ -77,7 +82,7 @@ $user = new User();
 	//write to Database
 	$user->write($user);
 	// stuur de code per mail
-	mail($mail, $subject,$message,"From: $from\n");
+	mail($mail, $subject, $message, $headers);
 	header('Location: ../../PW7/login/');
 }
  ?>
