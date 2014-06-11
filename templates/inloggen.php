@@ -13,7 +13,7 @@
 
 	<div class="innerContent">
 	<div id="option_menu" >
-			<div class="option_item" style="width:initial;" ><a href="../../PW7/wachtwoordvergeten/"><i class="fa fa-power-off" ></i> Wachtwoord vergeten</a></div>
+			<div class="option_item" style="width:250px;" ><a href="../../PW7/wachtwoordvergeten/"><i class="fa fa-power-off" ></i> Wachtwoord vergeten</a></div>
 			<div class="option_item"><a href="../../PW7/registreren/"><i class="fa fa-power-off"></i> Registreren</a></div>
 	</div>
 		<form style="margin-top:100px;" id="inlogForm" method="post" action="../../PW7/inloggen/" >
