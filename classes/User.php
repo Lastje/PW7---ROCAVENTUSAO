@@ -58,7 +58,7 @@
   		public function getMessages(){
   			$id = $this->database->userlogin($this->gebruikersnaam);
 
-  			$query = "SELECT * FROM message WHERE ontvanger_id = :id";
+  			$query = "SELECT * FROM message WHERE ontvanger_id = :id ORDER BY datum DESC";
 			$r = $this->database->db_object->prepare($query);
 			$r->execute(array(':id'=>$id));
 			
