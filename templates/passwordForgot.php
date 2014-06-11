@@ -13,6 +13,8 @@
 		<div id="option_menu">
 	        <div class="option_item"><i class="fa fa-pencil"></i> <a href="../../PW7/inloggen/">Terug</a> </div>
 	    </div>
+		<br/>
+		<br/>
 		<div style="position:absolute; margin-top:40px; margin-left:10px;">
 		<h3>Wachtwoord opvragen</h3>
 		<form method="post" action="../../PW7/DopasswordForgot/">
