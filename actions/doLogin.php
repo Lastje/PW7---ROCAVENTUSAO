@@ -23,12 +23,12 @@
 			else {
 				// terugsturen naar inloggen voor verkeerd wachtwoord
 				header('Location: ../../PW7/login/');
-				$_SESSION["error"] = "<p class='error1'>Gebruikernaam en/of wachtwoord is/zijn incorrect.</p>";
+				$_SESSION["error"] = "<p class='error1'>Gegevens zijn onjuist.</p>";
 			}
 	}
 	else
 	{
-		$_SESSION["error"] = "<p class='error1'>Gebruikernaam en/of wachtwoord is/zijn leeg.</p>";
+		$_SESSION["error"] = "<p class='error1'>Gegevens zijn onjuist.</p>";
 	header('Location: ../../PW7/login/');
 	}
 	
