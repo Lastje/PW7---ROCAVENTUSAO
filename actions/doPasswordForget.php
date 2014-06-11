@@ -11,11 +11,14 @@
 			return $randpassword;
 			}
 	$username = $_POST['username'];
-	$mail; 
-	$subject = "wachtwoord vergeten.";
-	$message = "";
-	$from = "PW7@PW7.nl";
-	$user;
+	$mail = $email;
+	$headers .= 'Content-type: text/html; charset=iso-8859-1' . '\r\n';
+	$headers .= 'From: Webmaster PW7 <webmaster@pw7.com>' . '\r\n';
+	$subject = "Activeringscode voor PW7";
+	$message = "Geachte heer/mevrouw, <br /><br />";
+	$message .= "Hierbij uw tijdelijke wachtwoord voor projectwijzer 7. <br />";
+	
+
 	$userid = null;
 	$userid = $database->userlogin($username);
 	$_SESSION['nameerror'] = null;
@@ -26,8 +29,13 @@
 		$mail = $user->email;
 		$randPassword = randPassword();
 		$user->wachtwoord = md5($randPassword);
-		$message = "wachtwoord is ". $randPassword;
-	mail($mail, $subject,$message,"From: $from\n");
+
+		$message .= "het tijdelijke wachtwoord is ". $randPassword . "<br /> <br />";
+		$message .= "Met vriendelijke groet, <br /> <br />";
+		$message .= "Webmaster van Projectwijzer 7";
+
+
+	mail($mail, $subject, $message, $headers);
 		$user->write(false);
 	header('Location: ../../PW7/login/');
 	}

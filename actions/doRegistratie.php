@@ -62,7 +62,7 @@ $headers .= 'From: Webmaster PW7 <webmaster@pw7.com>' . '\r\n';
 $subject = "Activeringscode voor PW7";
 $message = "Geachte heer/mevrouw, <br /><br />";
 $message .= "Hierbij uw activeringscode voor projectwijzer 7. <br />";
-$message .= "Uw activeringscode is: <b>". $code. "<br /> <br />";
+$message .= "Uw activeringscode is: <b>". $code. "</b><br /> <br />";
 $message .= "Met vriendelijke groet, <br /> <br />";
 $message .= "Webmaster van Projectwijzer 7";
 
